@@ -8,11 +8,13 @@ const { esAdminRole } = require('../middlewares/validarRoles');
 
 const router = Router();
 
+// Obtener todos los usuarios (solo admins autenticados)
 router.get('/', [
     validarJWT,
     esAdminRole
 ], usuariosTodosGet);
 
+//  Obtener usuario por ID (solo admins autenticados)
 router.get('/:id', [
     validarJWT,
     esAdminRole,
@@ -21,6 +23,7 @@ router.get('/:id', [
     validarCampos
 ], usuarioGetID);
 
+// Registro abierto: cualquier persona puede crear usuario normal
 router.post('/', [
     check('nombre', 'El nombre es obligatorio').notEmpty().trim().escape(),
     check('apellido', 'El apellido es obligatorio').notEmpty().trim().escape(),
@@ -32,6 +35,7 @@ router.post('/', [
     validarCampos
 ], usuarioPost);
 
+//  Actualizar usuario (solo admins autenticados)
 router.put('/:id', [
     validarJWT,
     esAdminRole,
@@ -40,6 +44,7 @@ router.put('/:id', [
     validarCampos
 ], usuarioPut);
 
+//  Eliminar usuario (solo admins autenticados)
 router.delete('/:id', [
     validarJWT,
     esAdminRole,
