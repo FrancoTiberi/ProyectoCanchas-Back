@@ -3,7 +3,7 @@ const cors = require("cors");
 const { conexionBD } = require("../database/config");
 
 const allowedOrigins = [
-  "https://golazogourmett.netlify.app",
+  "https://golazo-gourmet.netlify.app",
   "http://localhost:5173"
 ];
 

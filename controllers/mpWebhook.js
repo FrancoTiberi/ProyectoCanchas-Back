@@ -36,7 +36,7 @@ const recibirWebhook = async (req = request, res = response) => {
               entregado: false
             });
             await pedido.save();
-            console.log(`✅ Pedido de ${metadata.tipo} pagado y guardado`);
+            console.log(`Pedido de ${metadata.tipo} pagado y guardado`);
 
             if (metadata.tipo === 'tienda') {
               for (const item of items) {
