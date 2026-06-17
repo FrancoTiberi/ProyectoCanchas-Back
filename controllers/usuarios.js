@@ -2,6 +2,7 @@ const { response, request } = require('express');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const Usuario = require('../models/usuario');
+const bcrypt = require('bcryptjs');
 
 const usuariosTodosGet = async (req = request, res = response) => {
     const { desde = 0, limite = 5 } = req.query;
